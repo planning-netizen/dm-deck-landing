@@ -1,7 +1,8 @@
 /* ==========================================================================
    DM HOME IMPROVEMENT LLC - ACCESSIBLE DECKS & RAMPS LANDING PAGE
    Design System & Master Stylesheet
-   Updated: Flawless Mobile Sizing & Full Screen Responsiveness
+   Updated: Screenshot 2 Hero CTA Card, Google & Angi Verified Review Links,
+   4-Step Qualification Quiz Modal (Screenshot 3), and Removed Footer Services
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -39,6 +40,7 @@
   --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.07);
   --shadow-lg: 0 12px 32px rgba(21, 87, 176, 0.08);
   --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-modal: 0 24px 50px rgba(0, 0, 0, 0.3);
 
   /* Radius */
   --radius-sm: 6px;
@@ -299,8 +301,8 @@ button, input, select, textarea {
 }
 
 .header-actions .btn {
-  padding: 0.8rem 1.4rem;
-  font-size: 0.85rem;
+  padding: 0.8rem 1.6rem;
+  font-size: 0.88rem;
   font-weight: 800;
   white-space: nowrap;
 }
@@ -350,7 +352,7 @@ button, input, select, textarea {
 }
 
 /* --------------------------------------------------------------------------
-   4. Hero Section
+   4. Hero Section & Screenshot 2 Hero CTA Card
    -------------------------------------------------------------------------- */
 .hero {
   position: relative;
@@ -444,23 +446,74 @@ button, input, select, textarea {
   line-height: 1.35;
 }
 
-.hero-cta-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
+/* Screenshot 2 Hero CTA Card Styling */
+.hero-cta-card {
+  background-color: var(--color-white);
+  border: 1px solid #e5e7eb;
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2rem;
   width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  box-sizing: border-box;
 }
 
-.hero-btn {
-  padding: 1.1rem 2.25rem;
-  font-size: 1.05rem;
+.hero-cta-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #171717;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.1rem;
+  line-height: 1.25;
+}
+
+.shield-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.35rem;
+}
+
+.shield-line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #e2e8f0;
+}
+
+.shield-icon-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 1.5px solid #94a3b8;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.shield-icon-badge svg {
+  width: 20px;
+  height: 20px;
+}
+
+.hero-cta-card .hero-btn {
+  padding: 1.15rem 1.5rem;
+  font-size: 0.95rem;
+  width: 100%;
+  border-radius: var(--radius-md);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .hero-location {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: var(--color-gray-dark);
 }
@@ -489,7 +542,7 @@ button, input, select, textarea {
 }
 
 /* --------------------------------------------------------------------------
-   5. Cold Audience Lead Capture
+   5. Cold Audience Lead Capture Section (Single Clean Badge)
    -------------------------------------------------------------------------- */
 .checklist-section {
   background-color: #f4f7fc;
@@ -518,13 +571,13 @@ button, input, select, textarea {
   filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.12));
 }
 
+/* Single Clean Download Badge */
 .download-badge {
   position: absolute;
-  top: 50%;
-  right: -10px;
-  transform: translateY(-50%);
-  width: 78px;
-  height: 78px;
+  top: 15px;
+  right: -5px;
+  width: 72px;
+  height: 72px;
   background-color: var(--color-acc-green);
   color: var(--color-white);
   border-radius: 50%;
@@ -559,7 +612,7 @@ button, input, select, textarea {
 
 .checklist-title {
   font-family: var(--font-heading);
-  font-size: 2.2rem;
+  font-size: 2.1rem;
   font-weight: 800;
   color: var(--color-black);
   line-height: 1.25;
@@ -624,7 +677,7 @@ button, input, select, textarea {
   font-size: 0.88rem;
   color: var(--color-gray-dark);
   margin-bottom: 1.5rem;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .lead-form {
@@ -665,28 +718,6 @@ button, input, select, textarea {
   width: 13px;
   height: 13px;
   color: var(--color-gray-muted);
-}
-
-.form-success-message {
-  display: none;
-  text-align: center;
-  padding: 2rem 1rem;
-}
-
-.form-success-message.active {
-  display: block;
-}
-
-.success-icon {
-  width: 54px;
-  height: 54px;
-  background-color: rgba(46, 125, 50, 0.1);
-  color: var(--color-acc-green);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1rem auto;
 }
 
 /* --------------------------------------------------------------------------
@@ -952,101 +983,124 @@ button, input, select, textarea {
 }
 
 /* --------------------------------------------------------------------------
-   9. Real Google Review Testimonial Section
+   9. Verified Google & Angi Reviews Section
    -------------------------------------------------------------------------- */
-.testimonial-card-wrapper {
-  max-width: 1060px;
+.verified-reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
-.testimonial-card {
+.verified-review-card {
   background-color: var(--color-white);
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-gray-border);
   box-shadow: var(--shadow-md);
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  overflow: hidden;
-}
-
-.testimonial-image-col {
-  height: 100%;
-  min-height: 280px;
-  position: relative;
-}
-
-.testimonial-image-col img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.google-badge-tag {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  background-color: #ffffff;
-  padding: 0.4rem 0.85rem;
-  border-radius: var(--radius-full);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-heading);
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--color-black);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  z-index: 2;
-}
-
-.google-badge-tag svg {
-  width: 16px;
-  height: 16px;
-}
-
-.testimonial-content-col {
-  padding: 3rem 2.5rem;
+  padding: 2.25rem 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  position: relative;
+  justify-content: space-between;
+  transition: var(--transition);
 }
 
-.quote-icon {
+.verified-review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+.review-platform-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.platform-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-full);
   font-family: var(--font-heading);
-  font-size: 4rem;
-  line-height: 1;
-  color: var(--color-royal-blue);
-  opacity: 0.85;
-  margin-bottom: -1rem;
+  font-size: 0.78rem;
+  font-weight: 800;
 }
 
-.testimonial-quote {
-  font-size: 1.1rem;
-  font-weight: 600;
+.google-badge {
+  background-color: #eaf2fd;
+  color: var(--color-royal-blue);
+  border: 1px solid rgba(21, 87, 176, 0.2);
+}
+
+.angi-badge {
+  background-color: #fff4e5;
+  color: #d97706;
+  border: 1px solid rgba(217, 119, 6, 0.2);
+}
+
+.review-text {
+  font-size: 1.02rem;
+  font-weight: 500;
   color: var(--color-black);
   line-height: 1.6;
   margin-bottom: 1.5rem;
-  font-style: normal;
+  flex-grow: 1;
 }
 
-.testimonial-author {
+.review-footer-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-top: 1px solid var(--color-gray-border);
+  padding-top: 1.25rem;
+}
+
+.review-author-name {
   font-family: var(--font-heading);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: var(--color-black);
-  margin-bottom: 0.5rem;
 }
 
-.testimonial-author span {
-  color: var(--color-red);
+.review-author-name span {
+  color: var(--color-royal-blue);
 }
 
-.star-rating {
-  display: flex;
-  gap: 0.25rem;
-  color: var(--color-gold);
-  font-size: 1.15rem;
+.platform-link-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  transition: var(--transition);
+  width: 100%;
+  text-align: center;
+}
+
+.google-link-btn {
+  background-color: var(--color-royal-blue);
+  color: var(--color-white);
+}
+
+.google-link-btn:hover {
+  background-color: var(--color-royal-blue-hover);
+}
+
+.angi-link-btn {
+  background-color: #d97706;
+  color: var(--color-white);
+}
+
+.angi-link-btn:hover {
+  background-color: #b45309;
 }
 
 /* --------------------------------------------------------------------------
@@ -1112,7 +1166,7 @@ button, input, select, textarea {
 }
 
 /* --------------------------------------------------------------------------
-   11. Footer
+   11. Footer (3-Column Layout without Services)
    -------------------------------------------------------------------------- */
 .footer {
   background-color: var(--color-dark-footer);
@@ -1124,8 +1178,8 @@ button, input, select, textarea {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1fr;
-  gap: 3rem;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 3.5rem;
   margin-bottom: 3.5rem;
 }
 
@@ -1207,7 +1261,7 @@ button, input, select, textarea {
 }
 
 /* --------------------------------------------------------------------------
-   12. Consultation Popup Modal (Flawless Mobile Centering)
+   12. 4-Step Questionnaire Popup Modal (Screenshot 3 Matching)
    -------------------------------------------------------------------------- */
 .modal-overlay {
   position: fixed;
@@ -1215,8 +1269,9 @@ button, input, select, textarea {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.68);
-  backdrop-filter: blur(4px);
+  background-color: rgba(15, 15, 20, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   z-index: 2000;
   display: flex;
   align-items: center;
@@ -1226,6 +1281,7 @@ button, input, select, textarea {
   transition: var(--transition);
   padding: 1rem;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .modal-overlay.active {
@@ -1233,40 +1289,41 @@ button, input, select, textarea {
   visibility: visible;
 }
 
-.modal-card {
+.quiz-modal-card {
   background-color: var(--color-white);
   border-radius: var(--radius-lg);
-  max-width: 540px;
+  max-width: 580px;
   width: 100%;
-  padding: 2.5rem 2rem;
+  padding: 2.25rem 2rem;
   position: relative;
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--shadow-modal);
   transform: translateY(20px);
   transition: var(--transition);
   box-sizing: border-box;
   margin: auto;
 }
 
-.modal-overlay.active .modal-card {
+.modal-overlay.active .quiz-modal-card {
   transform: translateY(0);
 }
 
 .modal-close {
   position: absolute;
-  top: 1.25rem;
-  right: 1.25rem;
+  top: 1rem;
+  right: 1rem;
   background: none;
   border: none;
-  font-size: 1.6rem;
+  font-size: 1.75rem;
   color: var(--color-gray-muted);
   cursor: pointer;
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: var(--transition);
+  z-index: 10;
 }
 
 .modal-close:hover {
@@ -1274,24 +1331,89 @@ button, input, select, textarea {
   color: var(--color-black);
 }
 
-.modal-title {
-  font-family: var(--font-heading);
-  font-size: 1.7rem;
-  font-weight: 800;
-  color: var(--color-royal-blue);
-  margin-bottom: 0.4rem;
-  line-height: 1.25;
+.quiz-progress-wrapper {
+  margin-bottom: 1.5rem;
 }
 
-.modal-subtitle {
-  font-size: 0.9rem;
+.quiz-progress-header {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--color-royal-blue);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.quiz-progress-bar {
+  height: 6px;
+  background-color: var(--color-gray-border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.quiz-progress-fill {
+  height: 100%;
+  width: 25%;
+  background-color: var(--color-gold);
+  transition: width 0.35s ease;
+}
+
+.quiz-question-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-black);
+  margin-bottom: 0.4rem;
+  line-height: 1.3;
+}
+
+.quiz-question-subtitle {
+  font-size: 0.88rem;
   color: var(--color-gray-dark);
-  margin-bottom: 1.5rem;
-  line-height: 1.45;
+  margin-bottom: 1.25rem;
+}
+
+.quiz-options-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.quiz-option-card {
+  border: 1.5px solid var(--color-gray-border);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.15rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  background-color: #fafbfc;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+}
+
+.quiz-option-card:hover, .quiz-option-card.selected {
+  border-color: var(--color-royal-blue);
+  background-color: var(--color-white);
+  box-shadow: 0 4px 14px rgba(21, 87, 176, 0.12);
+  transform: translateY(-2px);
+}
+
+.quiz-option-label {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-black);
+  line-height: 1.35;
 }
 
 /* --------------------------------------------------------------------------
-   13. Responsive Media Queries & Flawless Mobile Optimization
+   13. Responsive Media Queries & 30% Mobile Scaled Pop-up Modal
    -------------------------------------------------------------------------- */
 @media (max-width: 1200px) {
   .header-container {
@@ -1360,12 +1482,8 @@ button, input, select, textarea {
     gap: 2.5rem;
   }
 
-  .testimonial-card {
+  .verified-reviews-grid {
     grid-template-columns: 1fr;
-  }
-
-  .testimonial-image-col {
-    height: 220px;
   }
 
   .final-cta-grid {
@@ -1374,7 +1492,7 @@ button, input, select, textarea {
   }
 
   .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
   }
 }
@@ -1454,9 +1572,18 @@ button, input, select, textarea {
     line-height: 1.3 !important;
   }
 
-  .hero-btn {
-    padding: 0.85rem 1.25rem !important;
-    font-size: 0.85rem !important;
+  .hero-cta-card {
+    padding: 1.5rem 1.15rem !important;
+  }
+
+  .hero-cta-card-title {
+    font-size: 1.25rem !important;
+    margin-bottom: 0.85rem !important;
+  }
+
+  .hero-cta-card .hero-btn {
+    padding: 0.85rem 1.15rem !important;
+    font-size: 0.82rem !important;
     width: 100% !important;
     white-space: normal !important;
   }
@@ -1482,14 +1609,13 @@ button, input, select, textarea {
     gap: 1.5rem !important;
   }
 
-  .testimonial-content-col {
-    padding: 1.75rem 1.25rem !important;
+  .verified-reviews-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
   }
 
-  .testimonial-quote {
-    font-size: 0.92rem !important;
-    line-height: 1.5 !important;
-    margin-bottom: 1rem !important;
+  .verified-review-card {
+    padding: 1.5rem 1.15rem !important;
   }
 
   .form-card {
@@ -1531,25 +1657,80 @@ button, input, select, textarea {
     text-align: center;
   }
 
-  /* --- Modal 30% Mobile Scale --- */
+  /* --- 30% Scaled Pop-up Modal for Mobile --- */
   .modal-overlay {
     padding: 0.75rem !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
-  .modal-card {
+  .quiz-modal-card {
     width: 90vw !important;
     max-width: 360px !important;
-    padding: 1.5rem 1.15rem !important;
+    padding: 1.25rem 1rem !important;
     border-radius: var(--radius-md) !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
   }
 
-  .modal-title {
-    font-size: 1.2rem !important;
+  .modal-close {
+    top: 0.5rem !important;
+    right: 0.5rem !important;
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 1.35rem !important;
+  }
+
+  .quiz-progress-wrapper {
+    margin-bottom: 1rem !important;
+  }
+
+  .quiz-progress-header {
+    font-size: 0.68rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  .quiz-progress-bar {
+    height: 5px !important;
+  }
+
+  .quiz-question-title {
+    font-size: 1.05rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  .quiz-question-subtitle {
+    font-size: 0.78rem !important;
+    margin-bottom: 0.85rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .quiz-options-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+  }
+
+  .quiz-option-card {
+    padding: 0.65rem 0.65rem !important;
+    border-radius: 8px !important;
+    border-width: 1.5px !important;
+    width: 100% !important;
+  }
+
+  .quiz-option-label {
+    font-size: 0.78rem !important;
     line-height: 1.25 !important;
   }
 
-  .modal-subtitle {
+  .quiz-modal-card .form-input {
+    padding: 0.65rem 0.75rem !important;
     font-size: 0.82rem !important;
-    margin-bottom: 1rem !important;
+  }
+
+  .quiz-modal-card .btn {
+    padding: 0.75rem 1rem !important;
+    font-size: 0.82rem !important;
   }
 }
