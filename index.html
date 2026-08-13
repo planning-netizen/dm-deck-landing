@@ -140,7 +140,7 @@
 
           <div class="hero-location" style="margin-top: 0.85rem;">
             <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5-2.5-1.12 2.5-2.5 2.5z"/>
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
             </svg>
             <span>3440 Toringdon Way Suite 205, Charlotte, NC &bull; Serving All NC</span>
           </div>
@@ -622,7 +622,7 @@
   </footer>
 
   <!-- ==========================================
-       MODAL: 4-STEP INTERACTIVE QUESTIONNAIRE POPUP (EXACT MATCH TO SCREENSHOT 3)
+       MODAL: 5-STEP INTERACTIVE QUESTIONNAIRE & GOOGLE CALENDAR BOOKING POPUP
        ========================================== -->
   <div class="modal-overlay" id="consultationModal" role="dialog" aria-modal="true" aria-labelledby="deckQuizModalTitle">
     <div class="quiz-modal-card">
@@ -632,7 +632,7 @@
       <div class="quiz-progress-wrapper">
         <div class="quiz-progress-header">
           <span>ACCESSIBLE DECKS &amp; RAMPS CONSULTATION</span>
-          <span id="deckQuizStepIndicator">STEP 1 OF 4</span>
+          <span id="deckQuizStepIndicator">STEP 1 OF 5</span>
         </div>
         <div class="quiz-progress-bar">
           <div class="quiz-progress-fill" id="deckQuizProgressFill"></div>
@@ -698,30 +698,55 @@
 
       <!-- STEP 4: Lead Contact Form -->
       <div id="deckQuizStep4" style="display: none;">
-        <h3 class="quiz-question-title">Where should we send your free 3D deck render &amp; quote?</h3>
+        <h3 class="quiz-question-title">Step 4 &mdash; Your Contact Details</h3>
         <p class="quiz-question-subtitle">Enter your contact details to receive your free design consultation.</p>
 
-        <form class="lead-form" id="deckQuizFinalForm">
+        <form class="lead-form" id="deckQuizContactForm">
           <input type="text" class="form-input" id="deckQuizName" placeholder="Full Name" required>
           <input type="tel" class="form-input" id="deckQuizPhone" placeholder="Phone Number" required>
           <input type="email" class="form-input" id="deckQuizEmail" placeholder="Email Address" required>
           <input type="text" class="form-input" id="deckQuizZip" placeholder="ZIP Code" required>
 
-          <button type="submit" class="btn btn-red btn-full" style="margin-top: 0.5rem; font-size: 0.95rem; padding: 1rem;">
-            SCHEDULE YOUR FREE DESIGN CONSULTATION
+          <button type="submit" class="btn btn-red btn-full" style="margin-top: 0.5rem; font-size: 0.92rem; padding: 1rem;">
+            CONTINUE TO SELECT CONSULTATION TIME &rarr;
           </button>
         </form>
       </div>
 
-      <!-- Success Screen -->
+      <!-- STEP 5: Interactive 15-Minute Booking Calendar (3 Days Max Availability, 9AM-6PM) -->
+      <div id="deckQuizStep5" style="display: none;">
+        <h3 class="quiz-question-title">Step 5 &mdash; Choose Your 15-Minute Consultation Time</h3>
+        <p class="quiz-question-subtitle">Select an available date &amp; 15-minute slot over the next 3 days (9:00 AM &ndash; 6:00 PM).</p>
+
+        <!-- Date Tabs (Max 3 Days) -->
+        <div class="calendar-date-tabs" id="calendarDateTabs"></div>
+
+        <!-- 15-Min Slots Grid (15-Min Buffer Intervals) -->
+        <div class="calendar-slots-grid" id="calendarSlotsGrid"></div>
+
+        <button type="button" class="btn btn-red btn-full" id="confirmBookingBtn" style="margin-top: 1.25rem; font-size: 0.95rem; padding: 1rem;">
+          CONFIRM APPOINTMENT &amp; ADD TO GOOGLE CALENDAR
+        </button>
+      </div>
+
+      <!-- Success Screen with Google Calendar Sync -->
       <div id="deckQuizStepSuccess" style="display: none; text-align: center; padding: 1.5rem 0;">
         <div class="success-icon" style="width: 56px; height: 56px; margin: 0 auto 1rem auto; background: rgba(46, 125, 50, 0.1); color: var(--color-acc-green); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
         </div>
-        <h3 style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; color: var(--color-royal-blue); margin-bottom: 0.5rem;">Request Received!</h3>
-        <p style="font-size: 0.92rem; color: var(--color-gray-dark); line-height: 1.5;">Thank you! Based on your selections, your in-home consultation is scheduled and your <strong>Free Accessible Home Entry Checklist</strong> is unlocked!</p>
+        <h3 style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; color: var(--color-royal-blue); margin-bottom: 0.5rem;">Appointment Booked &amp; Confirmed!</h3>
+        <p style="font-size: 0.92rem; color: var(--color-gray-dark); line-height: 1.5; margin-bottom: 1.25rem;">
+          Your 15-minute consultation is scheduled for <strong id="confirmedDateTimeStr" style="color: var(--color-black);">...</strong>. Click below to save it directly to your Google Calendar:
+        </p>
+
+        <a id="googleCalendarBtn" href="#" target="_blank" rel="noopener" class="btn btn-blue btn-full" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 1rem; font-size: 0.95rem; text-transform: uppercase;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"/>
+          </svg>
+          <span>ADD TO GOOGLE CALENDAR</span>
+        </a>
       </div>
     </div>
   </div>
@@ -743,7 +768,7 @@
       </p>
 
       <button class="btn btn-red btn-full js-open-consultation">
-        SCHEDULE YOUR FREE DESIGN CONSULTATION
+        GET YOUR FREE RAMP &amp; DECK RENDER &amp; QUOTE
       </button>
     </div>
   </div>

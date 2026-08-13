@@ -2,7 +2,7 @@
    DM HOME IMPROVEMENT LLC - ACCESSIBLE DECKS & RAMPS LANDING PAGE
    Design System & Master Stylesheet
    Updated: Screenshot 2 Hero CTA Card, Google & Angi Verified Review Links,
-   4-Step Qualification Quiz Modal (Screenshot 3), and Removed Footer Services
+   4-Step Qualification Quiz Modal, and 15-Minute Booking Calendar with Google Calendar Sync
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -571,7 +571,6 @@ button, input, select, textarea {
   filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.12));
 }
 
-/* Single Clean Download Badge */
 .download-badge {
   position: absolute;
   top: 15px;
@@ -1261,7 +1260,7 @@ button, input, select, textarea {
 }
 
 /* --------------------------------------------------------------------------
-   12. 4-Step Questionnaire Popup Modal (Screenshot 3 Matching)
+   12. 5-Step Questionnaire & Booking Calendar Popup Modal
    -------------------------------------------------------------------------- */
 .modal-overlay {
   position: fixed;
@@ -1355,7 +1354,7 @@ button, input, select, textarea {
 
 .quiz-progress-fill {
   height: 100%;
-  width: 25%;
+  width: 20%;
   background-color: var(--color-gold);
   transition: width 0.35s ease;
 }
@@ -1410,6 +1409,65 @@ button, input, select, textarea {
   font-weight: 700;
   color: var(--color-black);
   line-height: 1.35;
+}
+
+/* Calendar Date Tabs & Time Slot Grid Styling */
+.calendar-date-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  width: 100%;
+}
+
+.date-tab {
+  flex: 1;
+  padding: 0.65rem 0.5rem;
+  border: 1.5px solid var(--color-gray-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  background-color: #fafbfc;
+  color: var(--color-black);
+}
+
+.date-tab.active {
+  background-color: var(--color-royal-blue);
+  color: var(--color-white);
+  border-color: var(--color-royal-blue);
+  box-shadow: 0 4px 12px rgba(21, 87, 176, 0.2);
+}
+
+.calendar-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  max-height: 240px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.time-slot-card {
+  padding: 0.65rem 0.4rem;
+  border: 1.5px solid var(--color-gray-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  background-color: #fafbfc;
+  color: var(--color-black);
+}
+
+.time-slot-card:hover, .time-slot-card.selected {
+  background-color: var(--color-royal-blue);
+  color: var(--color-white);
+  border-color: var(--color-royal-blue);
+  box-shadow: 0 4px 12px rgba(21, 87, 176, 0.25);
 }
 
 /* --------------------------------------------------------------------------
@@ -1722,6 +1780,10 @@ button, input, select, textarea {
   .quiz-option-label {
     font-size: 0.78rem !important;
     line-height: 1.25 !important;
+  }
+
+  .calendar-slots-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 
   .quiz-modal-card .form-input {
