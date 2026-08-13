@@ -713,40 +713,48 @@
         </form>
       </div>
 
-      <!-- STEP 5: Interactive 15-Minute Booking Calendar (3 Days Max Availability, 9AM-6PM) -->
+      <!-- STEP 5: Official Embedded Google Calendar Scheduler -->
       <div id="deckQuizStep5" style="display: none;">
-        <h3 class="quiz-question-title">Step 5 &mdash; Choose Your 15-Minute Consultation Time</h3>
-        <p class="quiz-question-subtitle">Select an available date &amp; 15-minute slot over the next 3 days (9:00 AM &ndash; 6:00 PM).</p>
+        <h3 class="quiz-question-title">Step 5 &mdash; Select Your Appointment Time</h3>
+        <p class="quiz-question-subtitle">Pick an available 15-minute slot directly on our live DM Home Improvement Google Calendar below.</p>
 
-        <!-- Date Tabs (Max 3 Days) -->
-        <div class="calendar-date-tabs" id="calendarDateTabs"></div>
+        <!-- Embedded Google Calendar Scheduler -->
+        <div class="gcal-embed-wrapper" style="width: 100%; height: 480px; border-radius: 12px; overflow: hidden; border: 1px solid var(--color-gray-border); margin-bottom: 1rem; background: #ffffff;">
+          <iframe id="gcalIframe" src="https://calendar.app.google/RewM196GmpjkciGF7" style="width: 100%; height: 100%; border: none;" loading="lazy" title="DM Home Improvement Google Calendar Appointment Schedule"></iframe>
+        </div>
 
-        <!-- 15-Min Slots Grid (15-Min Buffer Intervals) -->
-        <div class="calendar-slots-grid" id="calendarSlotsGrid"></div>
+        <div style="background-color: #f4f7fc; border: 1px solid var(--color-gray-border); border-radius: 8px; padding: 0.85rem 1rem; margin-bottom: 1rem; text-align: left;">
+          <p style="font-size: 0.85rem; color: var(--color-gray-dark); line-height: 1.45; margin: 0;">
+            ✉️ <strong>Note:</strong> Once you pick a slot above, Google automatically reserves your time on our calendar and emails you full confirmation details!
+          </p>
+        </div>
 
-        <button type="button" class="btn btn-red btn-full" id="confirmBookingBtn" style="margin-top: 1.25rem; font-size: 0.95rem; padding: 1rem;">
-          CONFIRM APPOINTMENT &amp; ADD TO GOOGLE CALENDAR
+        <button type="button" class="btn btn-red btn-full" id="confirmBookingBtn" style="font-size: 0.95rem; padding: 0.95rem;">
+          I HAVE SELECTED MY TIME &mdash; COMPLETE BOOKING
         </button>
       </div>
 
-      <!-- Success Screen with Google Calendar Sync -->
+      <!-- Success Screen -->
       <div id="deckQuizStepSuccess" style="display: none; text-align: center; padding: 1.5rem 0;">
         <div class="success-icon" style="width: 56px; height: 56px; margin: 0 auto 1rem auto; background: rgba(46, 125, 50, 0.1); color: var(--color-acc-green); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
         </div>
-        <h3 style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; color: var(--color-royal-blue); margin-bottom: 0.5rem;">Appointment Booked &amp; Confirmed!</h3>
-        <p style="font-size: 0.92rem; color: var(--color-gray-dark); line-height: 1.5; margin-bottom: 1.25rem;">
-          Your 15-minute consultation is scheduled for <strong id="confirmedDateTimeStr" style="color: var(--color-black);">...</strong>. Click below to save it directly to your Google Calendar:
+        <h3 style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; color: var(--color-royal-blue); margin-bottom: 0.5rem;">Appointment Booked!</h3>
+        <p style="font-size: 0.95rem; color: var(--color-black); font-weight: 600; line-height: 1.5; margin-bottom: 1rem;">
+          Thank you! Your 15-minute consultation is booked on our calendar.
         </p>
 
-        <a id="googleCalendarBtn" href="#" target="_blank" rel="noopener" class="btn btn-blue btn-full" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 1rem; font-size: 0.95rem; text-transform: uppercase;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"/>
-          </svg>
-          <span>ADD TO GOOGLE CALENDAR</span>
-        </a>
+        <div style="background-color: #f4f7fc; border: 1px solid var(--color-gray-border); border-radius: 8px; padding: 1.15rem 1rem; margin-bottom: 1.25rem; text-align: left;">
+          <p style="font-size: 0.9rem; color: var(--color-gray-dark); line-height: 1.5; margin: 0;">
+            ✉️ <strong>Please check your email inbox to confirm your appointment.</strong> We have sent your confirmation email with all consultation details and your unlocked <em>Accessible Home Entry Checklist</em>.
+          </p>
+        </div>
+
+        <button type="button" class="btn btn-blue btn-full" id="closeModalSuccessBtn" style="padding: 0.9rem; font-size: 0.88rem; text-transform: uppercase;">
+          CLOSE WINDOW
+        </button>
       </div>
     </div>
   </div>

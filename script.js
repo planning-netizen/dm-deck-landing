@@ -244,54 +244,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Handle Booking Confirmation & Google Calendar URL Generation
+  // Handle Booking Confirmation
+  const confirmBookingBtn = document.getElementById('confirmBookingBtn');
   if (confirmBookingBtn) {
     confirmBookingBtn.addEventListener('click', () => {
-      if (!deckUserAnswers.selectedDateObj || !deckUserAnswers.selectedTimeSlot) {
-        alert('Please select a date and time slot for your appointment.');
-        return;
-      }
-
-      const day = deckUserAnswers.selectedDateObj;
-      const slot = deckUserAnswers.selectedTimeSlot;
-
-      // Construct Start/End Iso dates in UTC/Local format for Google Calendar
-      const pad = (n) => (n < 10 ? '0' + n : n);
-
-      const year = day.year;
-      const month = pad(day.month);
-      const dateNum = pad(day.day);
-
-      const startH = pad(slot.startH);
-      const startM = pad(slot.startM);
-      const endH = pad(slot.endH);
-      const endM = pad(slot.endM);
-
-      const startIso = `${year}${month}${dateNum}T${startH}${startM}00`;
-      const endIso = `${year}${month}${dateNum}T${endH}${endM}00`;
-
-      const title = encodeURIComponent("DM Home Improvement - 15 Min Deck & Ramp Consultation");
-      const details = encodeURIComponent(`15-Minute In-Home Consultation %26 3D Deck Render Review\n\nClient Name: ${deckUserAnswers.name}\nPhone: ${deckUserAnswers.phone}\nEmail: ${deckUserAnswers.email}\nZIP Code: ${deckUserAnswers.zip}\nGoal: ${deckUserAnswers.goal}\nTimeline: ${deckUserAnswers.timeline}`);
-      const location = encodeURIComponent("3440 Toringdon Way Suite 205, Charlotte, NC 28277");
-
-      const gCalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startIso}/${endIso}&details=${details}&location=${location}`;
-
-      // Update Confirmation Screen
-      const confirmedDateTimeStr = document.getElementById('confirmedDateTimeStr');
-      const googleCalendarBtn = document.getElementById('googleCalendarBtn');
-
-      if (confirmedDateTimeStr) {
-        confirmedDateTimeStr.textContent = `${day.fullDateStr} at ${slot.label}`;
-      }
-
-      if (googleCalendarBtn) {
-        googleCalendarBtn.href = gCalUrl;
-      }
-
-      console.log('DM Home Improvement Appointment Confirmed:', deckUserAnswers, gCalUrl);
+      console.log('DM Home Improvement Lead & Appointment Submitted:', deckUserAnswers);
       localStorage.setItem('dm_deck_quiz_submitted', 'true');
-
       updateDeckQuizStep(6);
+    });
+  }
+
+  const closeModalSuccessBtn = document.getElementById('closeModalSuccessBtn');
+  if (closeModalSuccessBtn) {
+    closeModalSuccessBtn.addEventListener('click', () => {
+      closeDeckModal();
     });
   }
 
