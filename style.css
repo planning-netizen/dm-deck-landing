@@ -1,6 +1,7 @@
 /* ==========================================================================
    DM HOME IMPROVEMENT LLC - ACCESSIBLE DECKS & RAMPS LANDING PAGE
-   Design System & Master Stylesheet (Spacious Un-cramped Header Layout)
+   Design System & Master Stylesheet
+   Updated: Flawless Mobile Sizing & Full Screen Responsiveness
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -72,6 +73,8 @@ html {
 
 body {
   overflow-x: hidden;
+  width: 100%;
+  position: relative;
 }
 
 img, svg {
@@ -98,6 +101,7 @@ button, input, select, textarea {
   margin-right: auto;
   padding-left: 2rem;
   padding-right: 2rem;
+  box-sizing: border-box;
 }
 
 /* Section Spacing */
@@ -158,7 +162,6 @@ button, input, select, textarea {
   cursor: pointer;
   transition: var(--transition);
   text-align: center;
-  white-space: nowrap;
 }
 
 .btn-red {
@@ -190,7 +193,7 @@ button, input, select, textarea {
 }
 
 /* --------------------------------------------------------------------------
-   3. Header / Navbar (Matching Image 2 - Spacious Single Line)
+   3. Header / Navbar
    -------------------------------------------------------------------------- */
 .header {
   position: sticky;
@@ -219,7 +222,6 @@ button, input, select, textarea {
   gap: 1.5rem;
 }
 
-/* Crisp Vector Logo matching Image 2 */
 .brand-logo-text {
   display: flex;
   flex-direction: column;
@@ -227,7 +229,6 @@ button, input, select, textarea {
   text-decoration: none;
   line-height: 1.15;
   flex-shrink: 0;
-  white-space: nowrap;
 }
 
 .brand-tagline {
@@ -237,7 +238,6 @@ button, input, select, textarea {
   color: #555555;
   letter-spacing: 0.01em;
   margin-bottom: 0.15rem;
-  white-space: nowrap;
 }
 
 .brand-name {
@@ -317,7 +317,7 @@ button, input, select, textarea {
 /* Mobile Nav Drawer */
 .mobile-nav {
   position: fixed;
-  top: 80px;
+  top: 70px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -380,6 +380,7 @@ button, input, select, textarea {
   line-height: 1.12;
   letter-spacing: -0.02em;
   margin-bottom: 1.25rem;
+  word-break: break-word;
 }
 
 .hero-title .title-blue {
@@ -447,6 +448,7 @@ button, input, select, textarea {
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
+  width: 100%;
 }
 
 .hero-btn {
@@ -469,7 +471,7 @@ button, input, select, textarea {
   color: var(--color-royal-blue);
 }
 
-/* Hero Visual / Image Frame */
+/* Hero Visual Frame */
 .hero-image-wrapper {
   position: relative;
   width: 100%;
@@ -486,19 +488,8 @@ button, input, select, textarea {
   display: block;
 }
 
-.hero-image-wrapper::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 25%;
-  background: linear-gradient(to right, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 100%);
-  pointer-events: none;
-}
-
 /* --------------------------------------------------------------------------
-   5. Cold Audience Lead Capture (Free Checklist Section)
+   5. Cold Audience Lead Capture
    -------------------------------------------------------------------------- */
 .checklist-section {
   background-color: #f4f7fc;
@@ -651,6 +642,7 @@ button, input, select, textarea {
   outline: none;
   transition: var(--transition);
   background-color: #fafbfc;
+  box-sizing: border-box;
 }
 
 .form-input:focus {
@@ -1120,7 +1112,7 @@ button, input, select, textarea {
 }
 
 /* --------------------------------------------------------------------------
-   11. Footer (2.5x Shield Logo)
+   11. Footer
    -------------------------------------------------------------------------- */
 .footer {
   background-color: var(--color-dark-footer);
@@ -1215,14 +1207,14 @@ button, input, select, textarea {
 }
 
 /* --------------------------------------------------------------------------
-   12. Consultation Popup Modal
+   12. Consultation Popup Modal (Flawless Mobile Centering)
    -------------------------------------------------------------------------- */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.68);
   backdrop-filter: blur(4px);
   z-index: 2000;
@@ -1232,7 +1224,8 @@ button, input, select, textarea {
   opacity: 0;
   visibility: hidden;
   transition: var(--transition);
-  padding: 1.5rem;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .modal-overlay.active {
@@ -1250,6 +1243,8 @@ button, input, select, textarea {
   box-shadow: 0 24px 48px rgba(0, 0, 0, 0.25);
   transform: translateY(20px);
   transition: var(--transition);
+  box-sizing: border-box;
+  margin: auto;
 }
 
 .modal-overlay.active .modal-card {
@@ -1296,7 +1291,7 @@ button, input, select, textarea {
 }
 
 /* --------------------------------------------------------------------------
-   13. Responsive Media Queries
+   13. Responsive Media Queries & Flawless Mobile Optimization
    -------------------------------------------------------------------------- */
 @media (max-width: 1200px) {
   .header-container {
@@ -1384,9 +1379,20 @@ button, input, select, textarea {
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 850px) {
   .header {
-    height: 80px;
+    height: 70px;
+  }
+
+  .brand-tagline {
+    font-size: 0.62rem;
+    white-space: normal;
+    max-width: 210px;
+    line-height: 1.2;
+  }
+
+  .brand-name {
+    font-size: 1.15rem;
   }
 
   .nav-menu, .header-actions .btn {
@@ -1398,44 +1404,152 @@ button, input, select, textarea {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .section-padding {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  .section-title {
+    font-size: 1.5rem !important;
+    line-height: 1.25 !important;
+  }
+
+  /* --- Hero Mobile Optimizations --- */
+  .hero {
+    padding-top: 2rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+
   .hero-title {
-    font-size: 2.25rem;
+    font-size: 1.65rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.85rem !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  .hero-subtitle {
+    font-size: 0.92rem !important;
+    line-height: 1.45 !important;
+    margin-bottom: 1.5rem !important;
   }
 
   .hero-benefits {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-columns: 1fr !important;
+    gap: 0.85rem !important;
+    margin-bottom: 1.75rem !important;
   }
 
+  .benefit-title {
+    font-size: 0.78rem !important;
+  }
+
+  .benefit-desc {
+    font-size: 0.78rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .hero-btn {
+    padding: 0.85rem 1.25rem !important;
+    font-size: 0.85rem !important;
+    width: 100% !important;
+    white-space: normal !important;
+  }
+
+  .hero-location {
+    font-size: 0.75rem !important;
+    line-height: 1.3 !important;
+  }
+
+  /* --- Card Grids Single-Column --- */
   .projects-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
   }
 
   .process-steps {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
   }
 
   .trust-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .testimonial-content-col {
+    padding: 1.75rem 1.25rem !important;
+  }
+
+  .testimonial-quote {
+    font-size: 0.92rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .form-card {
+    padding: 1.5rem 1.25rem !important;
+  }
+
+  .checklist-title {
+    font-size: 1.6rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .checklist-items li {
+    font-size: 0.9rem !important;
+  }
+
+  .final-cta-title {
+    font-size: 1.5rem !important;
+  }
+
+  .final-cta-subtitle {
+    font-size: 0.92rem !important;
+  }
+
+  .final-cta-btn {
+    padding: 0.85rem 1.25rem !important;
+    font-size: 0.85rem !important;
+    width: 100% !important;
+    white-space: normal !important;
   }
 
   .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
   }
 
   .footer-bottom {
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.75rem;
     text-align: center;
   }
 
-  .section-title {
-    font-size: 1.75rem;
+  /* --- Modal 30% Mobile Scale --- */
+  .modal-overlay {
+    padding: 0.75rem !important;
   }
 
-  .final-cta-title {
-    font-size: 1.85rem;
+  .modal-card {
+    width: 90vw !important;
+    max-width: 360px !important;
+    padding: 1.5rem 1.15rem !important;
+    border-radius: var(--radius-md) !important;
+  }
+
+  .modal-title {
+    font-size: 1.2rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .modal-subtitle {
+    font-size: 0.82rem !important;
+    margin-bottom: 1rem !important;
   }
 }
