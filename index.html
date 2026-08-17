@@ -244,15 +244,15 @@
     </section>
 
     <!-- ==========================================
-         RENDER SHOWCASE SECTION
+         DESIGN SHOWCASE SECTION
          ========================================== -->
     <section class="section-padding bg-white" id="renders-designs">
       <div class="container">
         <div class="projects-header">
           <span class="section-eyebrow">CUSTOM DECKS &amp; RAMPS</span>
-          <h2 class="section-title">Realistic <span class="highlight-blue">3D Deck Render Showcase</span></h2>
+          <h2 class="section-title">Realistic <span class="highlight-blue">Deck Design Showcase</span></h2>
           <p style="font-size: 1.05rem; color: var(--color-gray-dark); margin-top: 0.5rem;">
-            Explore custom 3D architectural deck renders tailored to fit your home and lifestyle before construction begins.
+            Explore custom deck designs and layouts tailored to fit your home and lifestyle before construction begins.
           </p>
         </div>
 
@@ -260,39 +260,39 @@
           <!-- Render Card 1 -->
           <div class="project-card">
             <div class="project-image-wrapper">
-              <span class="render-badge">3D RENDER</span>
-              <img src="assets/deck-1.png" alt="Custom Outdoor Living Deck Render Design">
+              <span class="render-badge">CUSTOM DESIGN</span>
+              <img src="assets/deck-1.png" alt="Custom Outdoor Living Deck">
             </div>
             <div class="project-content">
               <h3 class="project-title">Custom Outdoor Living Deck</h3>
               <p class="project-desc">Custom wood decking with integrated cedar pergola and comfortable outdoor seating area.</p>
-              <a href="#" class="project-link js-view-project" data-project="1">VIEW RENDER DESIGN &rarr;</a>
+              <a href="#" class="project-link js-view-project" data-project="1">VIEW DESIGN DETAILS &rarr;</a>
             </div>
           </div>
 
           <!-- Render Card 2 -->
           <div class="project-card">
             <div class="project-image-wrapper">
-              <span class="render-badge">3D RENDER</span>
-              <img src="assets/deck-2.png" alt="Spacious Elevated Wood Deck Render Design">
+              <span class="render-badge">CUSTOM DESIGN</span>
+              <img src="assets/deck-2.png" alt="Spacious Elevated Wood Deck">
             </div>
             <div class="project-content">
               <h3 class="project-title">Spacious Elevated Wood Deck</h3>
               <p class="project-desc">High-grade pressure-treated pine decking with custom perimeter safety railings.</p>
-              <a href="#" class="project-link js-view-project" data-project="2">VIEW RENDER DESIGN &rarr;</a>
+              <a href="#" class="project-link js-view-project" data-project="2">VIEW DESIGN DETAILS &rarr;</a>
             </div>
           </div>
 
           <!-- Render Card 3 -->
           <div class="project-card">
             <div class="project-image-wrapper">
-              <span class="render-badge">3D RENDER</span>
-              <img src="assets/deck-3.png" alt="Modern Composite Patio Deck Render Design">
+              <span class="render-badge">CUSTOM DESIGN</span>
+              <img src="assets/deck-3.png" alt="Modern Composite Patio Deck">
             </div>
             <div class="project-content">
               <h3 class="project-title">Modern Composite Patio Deck</h3>
               <p class="project-desc">Low-maintenance grey composite decking paired with clean white vinyl safety railings.</p>
-              <a href="#" class="project-link js-view-project" data-project="3">VIEW RENDER DESIGN &rarr;</a>
+              <a href="#" class="project-link js-view-project" data-project="3">VIEW DESIGN DETAILS &rarr;</a>
             </div>
           </div>
         </div>
@@ -351,7 +351,7 @@
               </div>
             </div>
             <h3 class="step-title"><span class="step-num">03</span> Get Your Project Plan</h3>
-            <p class="step-desc">We design the best solution for your home and provide a detailed 3D render estimate.</p>
+            <p class="step-desc">We design the best solution for your home and provide a detailed estimate.</p>
           </div>
 
           <!-- Step 4 -->
@@ -537,7 +537,7 @@
 
         <div class="final-cta-actions">
           <button class="btn btn-red final-cta-btn js-open-consultation">
-            GET YOUR FREE RAMP &amp; DECK RENDER &amp; QUOTE
+            GET YOUR FREE ESTIMATE
           </button>
           <a href="tel:9105570915" class="final-cta-phone">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -622,10 +622,10 @@
   </footer>
 
   <!-- ==========================================
-       MODAL: 5-STEP INTERACTIVE QUESTIONNAIRE & GOOGLE CALENDAR BOOKING POPUP
+       MODAL: 5-STEP INTERACTIVE QUESTIONNAIRE & EMBEDDED GOOGLE CALENDAR SCHEDULER
        ========================================== -->
   <div class="modal-overlay" id="consultationModal" role="dialog" aria-modal="true" aria-labelledby="deckQuizModalTitle">
-    <div class="quiz-modal-card">
+    <div class="quiz-modal-card" style="max-width: 640px;">
       <button class="modal-close" id="modalCloseBtn" aria-label="Close modal">&times;</button>
 
       <!-- Progress Header -->
@@ -708,7 +708,7 @@
           <input type="text" class="form-input" id="deckQuizZip" placeholder="ZIP Code" required>
 
           <button type="submit" class="btn btn-red btn-full" style="margin-top: 0.5rem; font-size: 0.92rem; padding: 1rem;">
-            CONTINUE TO SELECT CONSULTATION TIME &rarr;
+            CONTINUE TO BOOK CONSULTATION TIME &rarr;
           </button>
         </form>
       </div>
@@ -760,23 +760,23 @@
   </div>
 
   <!-- ==========================================
-       MODAL: RENDER DETAILS VIEWER
+       MODAL: DESIGN DETAILS VIEWER (FIXED FULL ASPECT RATIO CONTAINER)
        ========================================== -->
   <div class="modal-overlay" id="projectModal" role="dialog" aria-modal="true">
-    <div class="quiz-modal-card" style="max-width: 680px;">
-      <button class="modal-close" id="projectModalClose" aria-label="Close render modal">&times;</button>
+    <div class="quiz-modal-card" style="max-width: 720px; max-height: 90vh; overflow-y: auto;">
+      <button class="modal-close" id="projectModalClose" aria-label="Close design modal">&times;</button>
       
-      <div style="margin-bottom: 1.25rem; border-radius: 8px; overflow: hidden; max-height: 340px;">
-        <img id="projectModalImg" src="" alt="Render Photo" style="width: 100%; height: 100%; object-fit: cover;">
+      <div style="margin-bottom: 1.25rem; border-radius: 8px; overflow: hidden; background-color: #0f172a; display: flex; align-items: center; justify-content: center; width: 100%; min-height: 280px; max-height: 480px;">
+        <img id="projectModalImg" src="" alt="Deck Design Photo" style="width: 100%; height: auto; max-height: 480px; object-fit: contain; display: block; border-radius: 6px;">
       </div>
 
-      <h3 class="quiz-question-title" id="projectModalTitle" style="font-size: 1.4rem; margin-bottom: 0.5rem;">Render Title</h3>
+      <h3 class="quiz-question-title" id="projectModalTitle" style="font-size: 1.4rem; margin-bottom: 0.5rem;">Design Title</h3>
       <p id="projectModalDesc" style="font-size: 0.92rem; color: var(--color-gray-dark); line-height: 1.6; margin-bottom: 1.5rem;">
-        Render description...
+        Design description...
       </p>
 
       <button class="btn btn-red btn-full js-open-consultation">
-        GET YOUR FREE RAMP &amp; DECK RENDER &amp; QUOTE
+        GET YOUR FREE ESTIMATE
       </button>
     </div>
   </div>

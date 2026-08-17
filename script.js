@@ -208,17 +208,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const projectDetailsMap = {
     '1': {
-      title: 'Custom Outdoor Living Deck Render',
-      desc: '3D Render design showcasing a high-end wooden deck complete with built-in seating, a cedar pergola, and custom framing for year-round outdoor comfort.',
+      title: 'Custom Outdoor Living Deck',
+      desc: 'Custom outdoor design showcasing a high-end wooden deck complete with built-in seating, a cedar pergola, and custom framing for year-round outdoor comfort.',
       img: 'assets/deck-1.png'
     },
     '2': {
-      title: 'Spacious Elevated Wood Deck Render',
-      desc: 'Architectural deck design featuring high-grade pressure-treated pine planks, sturdy perimeter handrails, and a wide-open layout optimized for entertainment.',
+      title: 'Spacious Elevated Wood Deck',
+      desc: 'Custom deck design featuring high-grade pressure-treated pine planks, sturdy perimeter handrails, and a wide-open layout optimized for entertainment.',
       img: 'assets/deck-2.png'
     },
     '3': {
-      title: 'Modern Composite Patio Deck Render',
+      title: 'Modern Composite Patio Deck',
       desc: 'Premium low-maintenance composite deck design paired with crisp white vinyl safety railings and smooth entrance transitions from house to deck.',
       img: 'assets/deck-3.png'
     }
